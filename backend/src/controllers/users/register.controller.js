@@ -1,12 +1,12 @@
-import { asyncHandler } from "../utils/asyncHandler.js";
-import { ApiResponse } from "../utils/ApiResponse.js";
-import { ApiError } from "../utils/ApiError.js";
-import { findUserByEmail } from "../models/users.models.js";
+import { asyncHandler } from "../../utils/asyncHandler.js";
+import { ApiResponse } from "../../utils/ApiResponse.js";
+import { ApiError } from "../../utils/ApiError.js";
+import { findUserByEmail } from "../../models/users.models.js";
 import {
   insertVerification,
   findVerificationByEmail
-} from "../models/verifications.models.js";
-import { sendEmail } from "../services/verificationEmail.js";
+} from "../../models/verifications.models.js";
+import { sendEmail } from "../../services/verificationEmail.js";
 
 export const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;

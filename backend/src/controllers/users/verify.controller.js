@@ -1,12 +1,12 @@
-import { asyncHandler } from "../utils/asyncHandler.js";
-import { ApiResponse } from "../utils/ApiResponse.js";
-import { ApiError } from "../utils/ApiError.js";
+import { asyncHandler } from "../../utils/asyncHandler.js";
+import { ApiResponse } from "../../utils/ApiResponse.js";
+import { ApiError } from "../../utils/ApiError.js";
 import bcrypt from "bcryptjs";
-import { createUser } from "../models/users.models.js";
+import { createUser } from "../../models/users.models.js";
 import {
   findVerificationByEmail,
   deleteVerificationByEmail
-} from "../models/verifications.models.js";
+} from "../../models/verifications.models.js";
 
 export const verifyCodeAndCreateUser = asyncHandler(async (req, res) => {
   const { email, code } = req.body;
