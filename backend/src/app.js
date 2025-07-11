@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import userRouter from './routes/user.routes.js';
+import accountsRouter from './routes/account.routes.js';
 
 const app = express();
 
@@ -16,5 +17,6 @@ app.use(express.static("public"))
 app.use(cookieParser());
 
 app.use("/api/users", userRouter);
+app.use("/api/accounts", accountsRouter);
 
 export { app };
