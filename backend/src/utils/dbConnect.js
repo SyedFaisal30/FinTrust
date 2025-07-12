@@ -7,10 +7,12 @@ let connection;
 const dbConnect = async () => {
   try {
     connection = await mysql.createConnection({
-      host: process.env.DB_HOST,
-      user: process.env.DB_USER,
+      host: process.env.DB_HOST || "127.0.0.1",
+      port: parseInt(process.env.DB_PORT) || 3306,
+      user: process.env.DB_USER || "root",
       password: process.env.DB_PASSWORD || "",
-      database: process.env.DB_NAME,
+      database: process.env.DB_NAME || "bank",
+      connectTimeout: 10000,
     });
 
     console.log("✅ MySQL Connected Successfully");
