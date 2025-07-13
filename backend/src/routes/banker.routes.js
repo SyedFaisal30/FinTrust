@@ -10,8 +10,6 @@ const bankerRouter = Router();
 
 bankerRouter.route("/banker-login").post(loginBanker);
 
-bankerRouter.route("/refresh-token").get(refreshAccessToken);
-
 bankerRouter  
 .route("/customers")
 .get(authMiddleware, roleMiddleware("banker"), getAllCustomersController);

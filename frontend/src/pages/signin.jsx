@@ -24,16 +24,16 @@ const Signin = () => {
       );
 
       if (res?.data?.status === 200) {
+        const { user, accessToken } = res.data.data;
+
+        localStorage.setItem("accessToken", accessToken); 
         localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("role", user.role); 
+        localStorage.setItem("user", JSON.stringify(user));
         localStorage.setItem("login-event", Date.now());
 
-        const user = res.data.data.user;
-        localStorage.setItem("user", JSON.stringify(user));
         showToast("success", "Login successful!");
-
-        setTimeout(() => {
-          navigate("/dashboard");
-        }, 2000);
+        navigate("/dashboard");
       }
     } catch (err) {
       showToast(

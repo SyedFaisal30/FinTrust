@@ -4,7 +4,8 @@ import { logoutController } from "../controllers/auth/logout.controller.js";
 
 const authRouter = Router();
 
-authRouter.get("/refresh-token", refreshAccessToken);
-authRouter.post("/logout", logoutController);
+authRouter.route("/refresh-token").get(refreshAccessToken);
+
+authRouter.route("/logout").post(logoutController);
 
 export default authRouter;
