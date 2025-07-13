@@ -1,5 +1,3 @@
-// ToastContext.jsx
-
 import React, { createContext, useState, useContext } from "react";
 import { CheckCircle, AlertTriangle, Info, XCircle } from "lucide-react";
 
