@@ -1,7 +1,8 @@
-import { connection } from "../utils/dbConnect.js";
+import { getConnection } from "../utils/dbConnect.js";
 
 export const insertVerification = async ({ name, email, password, code, role, expiresAt }) => {
-  await connection.query(
+  const pool = getConnection();
+  await pool.query(
     `INSERT INTO verifications (name, email, password, code, role, expires_at)
      VALUES (?, ?, ?, ?, ?, ?)`,
     [name, email, password, code, role, expiresAt]
@@ -9,7 +10,8 @@ export const insertVerification = async ({ name, email, password, code, role, ex
 };
 
 export const findVerificationByEmail = async (email) => {
-  const [rows] = await connection.query(
+  const pool = getConnection();
+  const [rows] = await pool.query(
     `SELECT * FROM verifications WHERE email = ?`,
     [email]
   );
@@ -17,9 +19,11 @@ export const findVerificationByEmail = async (email) => {
 };
 
 export const deleteVerificationByEmail = async (email) => {
-  await connection.query(`DELETE FROM verifications WHERE email = ?`, [email]);
+  const pool = getConnection();
+  await pool.query(`DELETE FROM verifications WHERE email = ?`, [email]);
 };
 
 export const cleanupExpiredVerifications = async () => {
-  await connection.query(`DELETE FROM verifications WHERE expires_at < NOW()`);
+  const pool = getConnection();
+  await pool.query(`DELETE FROM verifications WHERE expires_at < NOW()`);
 };

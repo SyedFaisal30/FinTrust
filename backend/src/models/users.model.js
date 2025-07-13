@@ -1,7 +1,8 @@
-import { connection } from "../utils/dbConnect.js";
+import { getConnection } from "../utils/dbConnect.js";
 
 export const findUserByEmail = async (email) => {
-  const [rows] = await connection.query(
+  const pool = getConnection();
+  const [rows] = await pool.query(
     "SELECT * FROM users WHERE email = ?",
     [email]
   );
@@ -9,7 +10,8 @@ export const findUserByEmail = async (email) => {
 };
 
 export const findUserById = async (id) => {
-  const [rows] = await connection.query(
+  const pool = getConnection();
+  const [rows] = await pool.query(
     "SELECT * FROM users WHERE id = ?",
     [id]
   );
@@ -17,7 +19,8 @@ export const findUserById = async (id) => {
 };
 
 export const createUser = async (name, email, password, role = "customer") => {
-  const [result] = await connection.query(
+  const pool = getConnection();
+  const [result] = await pool.query(
     "INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)",
     [name, email, password, role]
   );
@@ -25,7 +28,8 @@ export const createUser = async (name, email, password, role = "customer") => {
 };
 
 export const getAllCustomers = async () => {
-  const [rows] = await connection.query(
+  const pool = getConnection();
+  const [rows] = await pool.query(
     "SELECT id, name, email FROM users WHERE role = 'customer'"
   );
   return rows;

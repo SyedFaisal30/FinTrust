@@ -4,7 +4,7 @@ import dbConnect from "./utils/dbConnect.js";
 
 dotenv.config({ path:"./.env"});
 
-dbConnect()
+await dbConnect()
 .then(() => {
     const PORT = process.env.PORT || 8000;
     app.listen(PORT, () => {
