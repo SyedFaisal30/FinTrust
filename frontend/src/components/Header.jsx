@@ -1,7 +1,7 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { LogIn, LogOut, UserCircle } from "lucide-react";
 import { useEffect, useState } from "react";
-
+import logo from "../assets/logo.png";
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -43,10 +43,14 @@ const Header = () => {
       <div className="flex justify-between items-center px-6 py-4">
         <Link
           to="/"
-          className="text-2xl font-bold text-blue-600 tracking-tight flex items-center gap-2"
+          className="text-2xl font-bold text-blue-600 tracking-tight flex items-center gap-0"
         >
-          <UserCircle className="text-gray-800 w-6 h-6" />
-          <span>
+          <img
+            src={logo}
+            alt="FinTrust Logo"
+            className="w-7 h-7 object-contain"
+          />
+          <span className="ml-1">
             Fin<span className="text-gray-800">trust</span>
           </span>
         </Link>
