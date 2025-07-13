@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="frontend/src/assets/logo.png" alt="Fintrust Logo" width="60" style="border-radius: 50%; vertical-align: middle; margin-right: 12px;" />
+  <img src="frontend/src/assets/logo.png" alt="Fintrust Logo" width="35" style="border-radius: 50%; vertical-align: middle; margin-right: 12px;" />
   <span>Fintrust – Modern Banking Web App</span>
 </h1>
 
