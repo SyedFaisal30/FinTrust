@@ -1,27 +1,76 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { LogIn, LogOut, UserCircle } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const Header = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    localStorage.getItem("isLoggedIn") === "true"
+  );
+
+  useEffect(() => {
+    const updateLoginState = () => {
+      const isAuth = localStorage.getItem("isLoggedIn") === "true";
+      setIsLoggedIn(isAuth);
+    };
+
+    updateLoginState();
+    const onStorageChange = () => updateLoginState();
+    window.addEventListener("storage", onStorageChange);
+    return () => window.removeEventListener("storage", onStorageChange);
+  }, [location]);
+
+  const handleLogout = async () => {
+    try {
+      await fetch(`${import.meta.env.VITE_SERVER_URL}/users/logout`, {
+        method: "POST",
+        credentials: "include",
+      });
+      localStorage.removeItem("isLoggedIn");
+      localStorage.setItem("logout-event", Date.now());
+      setIsLoggedIn(false);
+      navigate("/login");
+    } catch (err) {
+      console.error("Logout failed", err);
+      alert("Logout failed. Try again.");
+    }
+  };
+
   return (
-    <header className="w-full shadow-sm sticky top-0 z-50 bg-white">
-      <div className="w-full px-6 py-4 flex justify-between items-center">
-        <Link to="/" className="text-2xl font-bold text-blue-600 tracking-tight">
+    <header className="bg-white shadow-sm sticky top-0 z-50 w-full">
+      <div className="flex justify-between items-center px-6 py-4">
+        {/* Logo */}
+        <Link
+          to="/"
+          className="text-2xl font-bold text-blue-600 tracking-tight flex items-center gap-2"
+        >
+          <UserCircle className="text-gray-800 w-6 h-6" />
           Banker<span className="text-gray-800">Op</span>
         </Link>
-        <nav className="hidden md:flex gap-8 text-sm font-medium text-gray-600">
-          <Link to="/" className="hover:text-blue-600 transition">Home</Link>
-          <Link to="/about" className="hover:text-blue-600 transition">About</Link>
-          <Link to="/features" className="hover:text-blue-600 transition">Features</Link>
-          <Link to="/contact" className="hover:text-blue-600 transition">Contact</Link>
+
+        {/* Auth Button */}
+        <nav className="flex items-center gap-3 text-sm">
+          {isLoggedIn ? (
+            <button
+              onClick={handleLogout}
+              className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-xl transition-all"
+            >
+              <LogOut className="w-4 h-4" />
+              <span className="hidden sm:inline">Logout</span>
+            </button>
+          ) : (
+            <Link
+              to="/login"
+              className="flex items-center gap-2 border px-4 py-2 rounded-xl hover:bg-gray-50 transition-all"
+            >
+              <LogIn className="w-4 h-4" />
+              <span className="hidden sm:inline">Signin</span>
+            </Link>
+          )}
         </nav>
-        <div className="flex gap-3">
-          <Link to="/login" className="text-sm px-4 py-2 border rounded-xl hover:bg-gray-50 transition">
-            Login
-          </Link>
-          <Link to="/signup" className="text-sm px-4 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition">
-            Signup
-          </Link>
-        </div>
-      </div>
+      </div>    
     </header>
   );
 };
