@@ -1,7 +1,7 @@
 import { asyncHandler } from "../../utils/asyncHandler.js";
 import jwt from "jsonwebtoken";
-import { ApiError } from "../../utils/ApiError.js";
-import { ApiResponse } from "../../utils/ApiResponse.js";
+import { ApiError } from "../../utils/apiError.js";
+import { ApiResponse } from "../../utils/apiResponse.js";
 import { generateAccessToken } from "../../services/tokenGenerator.js";
 
 export const refreshAccessToken = asyncHandler(async (req, res) => {

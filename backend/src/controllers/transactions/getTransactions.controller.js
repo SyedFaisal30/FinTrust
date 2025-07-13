@@ -1,5 +1,5 @@
 import { asyncHandler } from "../../utils/asyncHandler.js";
-import { ApiResponse } from "../../utils/ApiResponse.js";
+import { ApiResponse } from "../../utils/apiResponse.js";
 import { getUserTransactions } from "../../models/accounts.model.js";
 
 export const getTransactionsController = asyncHandler(async (req, res) => {

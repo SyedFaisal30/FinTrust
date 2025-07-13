@@ -1,7 +1,7 @@
 import { asyncHandler } from "../../utils/asyncHandler.js";
 import { getUserTransactions } from "../../models/accounts.model.js";
-import { ApiError } from "../../utils/ApiError.js";
-import { ApiResponse } from "../../utils/ApiResponse.js";
+import { ApiError } from "../../utils/apiError.js";
+import { ApiResponse } from "../../utils/apiResponse.js";
 import { findUserById } from "../../models/users.model.js";
 
 export const getCustomerTransactionsController = asyncHandler(
