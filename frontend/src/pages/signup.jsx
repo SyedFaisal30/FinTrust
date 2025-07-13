@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import VerifyCode from "./verifycode";
+import VerifyCode from "./Verifycode";
 import { useToast } from "../context/useToast";
 
 const Signup = () => {

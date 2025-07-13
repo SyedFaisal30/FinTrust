@@ -27,14 +27,19 @@ const Signin = () => {
         localStorage.setItem("isLoggedIn", "true");
         localStorage.setItem("login-event", Date.now());
 
+        const user = res.data.data.user;
+        localStorage.setItem("user", JSON.stringify(user));
         showToast("success", "Login successful!");
 
         setTimeout(() => {
-          navigate("/");
+          navigate("/dashboard");
         }, 2000);
       }
     } catch (err) {
-      showToast("error", err?.response?.data?.message || "Login failed. Please try again.");
+      showToast(
+        "error",
+        err?.response?.data?.message || "Login failed. Please try again."
+      );
     } finally {
       setLoading(false);
     }

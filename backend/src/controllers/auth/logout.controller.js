@@ -3,7 +3,7 @@ import { ApiResponse } from "../../utils/ApiResponse.js";
 
 const cookieOptions = {
   httpOnly: true,
-  secure: process.env.NODE_ENV === "production",
+  secure: true,
   sameSite: "None",
   path: "/",
 };

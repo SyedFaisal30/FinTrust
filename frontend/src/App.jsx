@@ -1,12 +1,13 @@
 import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
-
+import PrivateRoute from "./components/PrivateRoute";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Landing from "./pages/Landing";
-import Signup from "./pages/signup";
+import Signup from "./pages/Signup";
 import Signin from "./pages/signin";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   useEffect(() => {
@@ -40,6 +41,16 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Signin />} />
+
+          {/* ✅ Protected Route */}
+          <Route
+            path="/dashboard"
+            element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            }
+          />
         </Routes>
       </main>
       <Footer />

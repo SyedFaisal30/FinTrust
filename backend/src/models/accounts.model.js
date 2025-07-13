@@ -10,15 +10,23 @@ export const depositAmount = async (userId, amount) => {
 
 export const withdrawAmount = async (userId, amount) => {
   const balance = await getUserBalance(userId);
-  if (amount > balance) {
-    throw new Error("Insufficient funds");
+
+  if (balance <= 0) {
+    throw new Error("Your account balance is ₹0. Please deposit funds before withdrawing.");
   }
+
+  if (amount > balance) {
+    throw new Error("Insufficient funds to complete this withdrawal.");
+  }
+
   const [result] = await connection.query(
     "INSERT INTO accounts (user_id, type, amount) VALUES (?, 'withdraw', ?)",
     [userId, amount]
   );
+
   return result.insertId;
 };
+
 
 export const getUserBalance = async (userId) => {
   const [rows] = await connection.query(
