@@ -44,7 +44,6 @@ const Dashboard = () => {
           <span className="text-blue-600">{name || "Customer"}</span>
         </h1>
 
-        {/* Balance Card */}
         <div className="bg-white shadow-md rounded-xl p-4 md:p-6 mb-6 text-center w-full">
           <h2 className="text-lg md:text-xl font-semibold text-gray-700 mb-2">Current Balance</h2>
           <p className="text-2xl md:text-3xl font-bold text-green-600">
@@ -52,11 +51,10 @@ const Dashboard = () => {
           </p>
         </div>
 
-        {/* Deposit / Withdraw Toggle Buttons */}
         <div className="flex justify-center gap-4 mb-6">
           <button
             onClick={() => setActiveTab("deposit")}
-            className={`px-4 py-2 rounded-lg font-medium transition ${
+            className={`px-4 py-2 rounded-lg font-medium transition cursor-pointer ${
               activeTab === "deposit"
                 ? "bg-blue-600 text-white"
                 : "bg-white border border-blue-600 text-blue-600"
@@ -66,7 +64,7 @@ const Dashboard = () => {
           </button>
           <button
             onClick={() => setActiveTab("withdraw")}
-            className={`px-4 py-2 rounded-lg font-medium transition ${
+            className={`px-4 py-2 rounded-lg font-medium transition cursor-pointer ${
               activeTab === "withdraw"
                 ? "bg-green-600 text-white"
                 : "bg-white border border-green-600 text-green-600"
@@ -76,7 +74,6 @@ const Dashboard = () => {
           </button>
         </div>
 
-        {/* Show Active Section (Deposit or Withdraw) */}
         <div className="bg-white shadow rounded-xl p-4 md:p-6 mb-8">
           {activeTab === "deposit" && (
             <>
@@ -92,7 +89,6 @@ const Dashboard = () => {
           )}
         </div>
 
-        {/* Transactions (Always Visible) */}
         <div className="bg-white shadow rounded-xl p-4 md:p-6">
           <h2 className="text-lg font-semibold mb-4 text-gray-700">Recent Transactions</h2>
           <div className="overflow-x-auto">

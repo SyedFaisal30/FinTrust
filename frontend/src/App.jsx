@@ -44,7 +44,7 @@ function App() {
   }, [location.pathname]);
 
   return (
-    <div className="w-full min-h-screen flex flex-col bg-white text-gray-900">
+    <div className="w-full flex flex-col bg-white text-gray-900">
       <Header />
       <main className="w-full">
         <Routes>

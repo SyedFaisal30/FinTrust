@@ -60,7 +60,7 @@ const Withdraw = () => {
           <button
             type="submit"
             disabled={loading}
-            className={`px-6 py-2 text-white flex items-center justify-center gap-2 rounded-lg transition ${
+            className={`px-6 py-2 text-white flex items-center justify-center gap-2 rounded-lg transition cursor-pointer ${
               loading
                 ? "bg-red-400 cursor-not-allowed"
                 : "bg-red-600 hover:bg-red-700"

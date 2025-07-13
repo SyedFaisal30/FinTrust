@@ -41,21 +41,21 @@ const Header = () => {
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50 w-full">
       <div className="flex justify-between items-center px-6 py-4">
-        {/* Logo */}
         <Link
           to="/"
           className="text-2xl font-bold text-blue-600 tracking-tight flex items-center gap-2"
         >
           <UserCircle className="text-gray-800 w-6 h-6" />
-          Banker<span className="text-gray-800">Op</span>
+          <span>
+            Fin<span className="text-gray-800">trust</span>
+          </span>
         </Link>
 
-        {/* Auth Button */}
         <nav className="flex items-center gap-3 text-sm">
           {isLoggedIn ? (
             <button
               onClick={handleLogout}
-              className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-xl transition-all"
+              className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-xl transition-all cursor-pointer"
             >
               <LogOut className="w-4 h-4" />
               <span className="hidden sm:inline">Logout</span>
@@ -63,14 +63,14 @@ const Header = () => {
           ) : (
             <Link
               to="/login"
-              className="flex items-center gap-2 border px-4 py-2 rounded-xl hover:bg-gray-50 transition-all"
+              className="flex items-center gap-2 border px-4 py-2 rounded-xl hover:bg-gray-50 transition-all cursor-pointer"
             >
               <LogIn className="w-4 h-4" />
               <span className="hidden sm:inline">Signin</span>
             </Link>
           )}
         </nav>
-      </div>    
+      </div>
     </header>
   );
 };

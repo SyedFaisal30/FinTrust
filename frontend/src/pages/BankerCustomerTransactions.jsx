@@ -58,7 +58,6 @@ const BankerCustomerTransactions = () => {
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-5xl mx-auto">
-        {/* Top Section */}
         <div className="mb-6">
           <div className="flex items-center gap-2 text-sm text-gray-600 mb-1">
             <button
@@ -78,7 +77,6 @@ const BankerCustomerTransactions = () => {
           </h1>
         </div>
 
-        {/* Table */}
         {loading ? (
           <div className="flex justify-center mt-20">
             <Loader2 className="w-6 h-6 animate-spin text-blue-500" />

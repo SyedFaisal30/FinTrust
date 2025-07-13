@@ -68,7 +68,7 @@ const BankerLogin = () => {
           <button
             type="submit"
             disabled={loading}
-            className={`w-full flex items-center justify-center gap-2 text-white px-4 py-2 rounded-lg transition ${
+            className={`w-full flex items-center justify-center gap-2 text-white px-4 py-2 rounded-lg transition cursor-pointer ${
               loading
                 ? "bg-blue-400 cursor-not-allowed"
                 : "bg-blue-600 hover:bg-blue-700"

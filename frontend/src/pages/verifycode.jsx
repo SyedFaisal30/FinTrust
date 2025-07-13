@@ -20,7 +20,7 @@ const VerifyCode = ({ email }) => {
 
       if (res?.data?.status === 201) {
         showToast("success", "Account created successfully!");
-        setTimeout(() => navigate("/signin"), 2000);
+        setTimeout(() => navigate("/login"), 2000);
       }
     } catch (err) {
       showToast("error", err.response?.data?.message || "Verification failed");

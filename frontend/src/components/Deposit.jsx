@@ -58,7 +58,7 @@ const Deposit = () => {
           <button
             type="submit"
             disabled={loading}
-            className={`px-6 py-2 text-white rounded-lg flex items-center justify-center gap-2 transition ${
+            className={`px-6 py-2 text-white rounded-lg flex items-center justify-center gap-2 transition cursor-pointer ${
               loading
                 ? "bg-green-400 cursor-not-allowed"
                 : "bg-green-600 hover:bg-green-700"

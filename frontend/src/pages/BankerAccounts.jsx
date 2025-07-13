@@ -68,7 +68,7 @@ const BankerAccounts = () => {
                 </p>
                 <button
                   onClick={() => navigate(`/banker/customers/${customer.id}/transactions`)}
-                  className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded-lg transition"
+                  className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded-lg transition cursor-pointer"
                 >
                   View Transactions
                 </button>

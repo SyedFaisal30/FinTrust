@@ -9,7 +9,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-gray-100 py-6 mt-12">
+    <footer className="w-full bg-gray-100 py-6">
       <div className="w-full px-6 flex flex-col md:flex-row justify-between items-center">
         <p className="text-sm text-gray-600 text-center md:text-left">© 2025 BankerOp. All rights reserved.</p>
 

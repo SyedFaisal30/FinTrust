@@ -71,7 +71,7 @@ const Signin = () => {
           <button
             type="submit"
             disabled={loading}
-            className={`w-full py-2 flex items-center justify-center gap-2 text-white rounded-lg transition-all ${
+            className={`w-full py-2 flex items-center justify-center gap-2 text-white rounded-lg transition-all cursor-pointer ${
               loading
                 ? "bg-blue-400 cursor-not-allowed"
                 : "bg-blue-600 hover:bg-blue-700"

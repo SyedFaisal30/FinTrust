@@ -9,25 +9,26 @@ const Landing = () => {
           <h1 className="text-5xl font-bold leading-tight mb-6">
             Banking Made <span className="text-blue-600">Simple</span> & Secure
           </h1>
-          <p className="text-lg text-gray-600 mb-8">
-            Experience fast, reliable, and transparent banking services with
-            BankerOp. Your money. Your control.
+          <p className="text-lg text-gray-600 mb-4">
+            Welcome to{" "}
+            <span className="font-semibold text-gray-800">Fintrust</span> —
+            where modern banking meets trust and convenience.
           </p>
-          <div className="flex gap-4">
+          <p className="text-lg text-gray-600 mb-8">
+            Open your account in minutes, manage your money with ease, and enjoy
+            banking that works on your terms — fast, safe, and always
+            transparent.
+          </p>
+          <div className="flex">
             <a
-              href="/signup"
+              href="/login"
               className="px-6 py-3 text-white bg-blue-600 rounded-xl hover:bg-blue-700 transition"
             >
               Get Started
             </a>
-            <a
-              href="/features"
-              className="px-6 py-3 text-blue-600 border border-blue-600 rounded-xl hover:bg-blue-50 transition"
-            >
-              Learn More
-            </a>
           </div>
         </div>
+
         <div className="w-full md:w-1/2 flex justify-center">
           <img
             src={landingImg}
