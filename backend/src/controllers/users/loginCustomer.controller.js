@@ -30,6 +30,7 @@ export const loginCustomer = asyncHandler(async (req, res) => {
     secure: process.env.NODE_ENV === "production",
     sameSite: "None",
     maxAge: 24 * 60 * 60 * 1000,
+    secure:true,
   });
 
   return res.status(200).json(

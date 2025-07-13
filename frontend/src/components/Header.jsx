@@ -24,7 +24,7 @@ const Header = () => {
 
   const handleLogout = async () => {
     try {
-      await fetch(`${import.meta.env.VITE_SERVER_URL}/users/logout`, {
+      await fetch(`${import.meta.env.VITE_SERVER_URL}/auth/logout`, {
         method: "POST",
         credentials: "include",
       });
