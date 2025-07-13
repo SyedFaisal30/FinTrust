@@ -7,7 +7,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 import Landing from "./pages/Landing";
-import Signup from "./pages/Signup";
+import Signup from "./pages/Signup.jsx";
 import Signin from "./pages/Signin";
 import Dashboard from "./pages/Dashboard";
 import BankerLogin from "./pages/BankerLogin";
